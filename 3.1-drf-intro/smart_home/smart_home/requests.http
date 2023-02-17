@@ -1,0 +1,42 @@
+@mainUrl = http://localhost:8000/api
+
+
+GET {{mainUrl}}/sensors/
+Content-Type: application/json
+
+###
+
+
+POST {{mainUrl}}/sensor_create/
+Content-Type: application/json
+
+{
+  "name": "spy4",
+  "location": "roof"
+}
+
+###
+
+
+PATCH {{mainUrl}}/sensor_change/1/
+Content-Type: application/json
+
+{
+  "location": "living_room"
+}
+
+###
+
+POST {{mainUrl}}/measure_create/
+Content-Type: application/json
+
+{
+  "sensor": 4,
+  "temp": 40
+}
+
+###
+
+
+GET {{mainUrl}}/sensor_info/1/
+Content-Type: application/json
