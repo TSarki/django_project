@@ -44,5 +44,5 @@ Content-Type: application/json
 ###
 
 # удаление
-DELETE  {{baseUrl}}/adv/9/
+DELETE   {{baseUrl}}/adv/9/
 Authorization: Token 33250932124e0cf4e2987bb1345b35768d571ff6

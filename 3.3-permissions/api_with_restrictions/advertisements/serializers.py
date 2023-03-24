@@ -27,13 +27,6 @@ class AdvertisementSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """Метод для создания"""
-
-        # Простановка значения поля создатель по-умолчанию.
-        # Текущий пользователь является создателем объявления
-        # изменить или переопределить его через API нельзя.
-        # обратите внимание на `context` – он выставляется автоматически
-        # через методы ViewSet.
-        # само поле при этом объявляется как `read_only=True`
         validated_data["creator"] = self.context["request"].user
         return super().create(validated_data)
 
@@ -43,8 +36,8 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         # Проверяем что пользователь имеет менее 10 объявлений
         # self.instance отсутствует если объект создается.
         # Это условие нужно чтобы проходила валидация при редактировании
-        if not self.instance:
-            if Advertisement.objects.filter(creator=user).count() > 10:
+        if not self.instance or Advertisement.status.default == open:
+            if Advertisement.objects.filter(creator=user, status=open).count() > 10:
                 raise serializers.ValidationError(f'User {user} can\'t create more then 10 items!')
 
         return data
