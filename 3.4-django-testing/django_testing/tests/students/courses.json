@@ -1,0 +1,52 @@
+[
+    {
+      "model": "myapp.course",
+      "pk": 1,
+      "fields": {
+        "name": "Название курса 1",
+        "students": [
+          {
+            "model": "myapp.student",
+            "fields": {
+              "name": "Имя студента 1",
+              "birth_date": "1990-01-01"
+            }
+          },
+          {
+            "model": "myapp.student",
+            "fields": {
+              "name": "Имя студента 2",
+              "birth_date": "1992-05-15"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "model": "myapp.course",
+      "pk": 2,
+      "fields": {
+        "name": "Название курса 2",
+        "students": [
+          {
+            "model": "myapp.student",
+            "fields": {
+              "name": "Имя студента 3",
+              "birth_date": "1995-09-03"
+            }
+          },
+          {
+            "model": "myapp.student",
+            "fields": {
+              "name": "Имя студента 4",
+              "birth_date": "1998-12-21"
+            }
+          }
+        ]
+      }
+    }
+  ]
+ 
+  
+  
+  
